@@ -42,7 +42,7 @@ def locate_upnp_devices():
 # Open Web Interface in Firefox, found it doesn't really play nice with Safari 
 def oiff(webAddr, systype): 
     if systype == 'Darwin':
-        subprocess.Popen(['open', '-a', '/Applications/Firefox Developer Edition.app', webAddr])
+        subprocess.Popen(['open', '-a', '/Applications/Firefox.app', webAddr])
     elif systype == 'Linux':
         subprocess.Popen(['firefox', webAddr])
     elif systype == 'Windows':
