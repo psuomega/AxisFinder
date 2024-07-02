@@ -1,3 +1,7 @@
+#! /usr/bin/env python3
+#Author: Lucas Shaffer, 2024
+#License: Do whatever you want. This code is free as in beer. 
+
 from tkinter import *
 from tkinter import ttk
 import Axisfinder
