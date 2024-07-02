@@ -1,4 +1,6 @@
 #! /usr/bin/env python3
+#Author: Lucas Shaffer, 2024
+#License: Do whatever you want. This code is free as in beer. 
 # Originally tested/built to work using Python 3.10 on MacOS Ventura
 
 import socket
