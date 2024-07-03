@@ -19,28 +19,37 @@ root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
 
 #Create first row with Column Labels
-Label(mainframe, text="Axis Model").grid(column=1, row=1, sticky=W)
-Label(mainframe, text="IP Address").grid(column=2, row=1, sticky=W)
-Label(mainframe, text="Serial No").grid(column=3, row=1, sticky=W)
-Label(mainframe, text="FW Version").grid(column=4, row=1, sticky=W)
-Label(mainframe, text="Open in Browser").grid(column=5, row=1, sticky=W)
+Label(mainframe, text="Axis Model", font=("Arial", 16)).grid(column=1, row=1, sticky=W)
+Label(mainframe, text="IP Address", font=("Arial", 16)).grid(column=2, row=1, sticky=W)
+Label(mainframe, text="Serial No", font=("Arial", 16)).grid(column=3, row=1, sticky=W)
+Label(mainframe, text="FW Version", font=("Arial", 16)).grid(column=4, row=1, sticky=W)
+Label(mainframe, text="Open in Browser", font=("Arial", 16)).grid(column=5, row=1, sticky=W)
+
+
+# Set up Button Function to open browser
+
+def button_pressed(row):
+    Axisfinder.oiff(dictUrl[row], systype)
 
 # Perform SSDP Discovery and populate Rows.
 response = Axisfinder.locate_upnp_devices()
 (addrList, data) = response
 i = 2
+dictUrl = {}
+btns = {}
 for each in range(len(data)):
         val = data[each]
-        apiUrl = addrList[each]
         if re.search('-axis', val):
-            devInfo = Axisfinder.get_dev_info(apiUrl)
+            dictUrl[i] = addrList[each]
+            devInfo = Axisfinder.get_dev_info(dictUrl[i])
             (model, sn, currVer, oldVer) = devInfo
-            Label(mainframe, text=model).grid(column=1, row=i, sticky=W)
-            Label(mainframe, text=apiUrl).grid(column=2, row=i, sticky=W)
-            Label(mainframe, text=sn).grid(column=3, row=i, sticky=W)
-            Label(mainframe, text=currVer).grid(column=4, row=i, sticky=W)
-            btn = Button(mainframe, text="Browser", command=lambda: Axisfinder.oiff(apiUrl,systype)).grid(column=5, row=i, sticky=W)
+            Label(mainframe, text=model, font=("Arial", 14)).grid(column=1, row=i, sticky=W)
+            Label(mainframe, text=dictUrl[i], font=("Arial", 14)).grid(column=2, row=i, sticky=W)
+            Label(mainframe, text=sn, font=("Arial", 14)).grid(column=3, row=i, sticky=W)
+            Label(mainframe, text=currVer, font=("Arial", 14)).grid(column=4, row=i, sticky=W)
+            btns[i] = Button(mainframe, text="Open", command=lambda a=i: button_pressed(a)).grid(column=5, row=i, sticky=E)
             i += i
 for child in mainframe.winfo_children(): 
     child.grid_configure(padx=5, pady=5)
+
 root.mainloop()
