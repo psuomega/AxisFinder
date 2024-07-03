@@ -47,7 +47,7 @@ for each in range(len(data)):
             Label(mainframe, text=dictUrl[i], font=("Arial", 14)).grid(column=2, row=i, sticky=W)
             Label(mainframe, text=sn, font=("Arial", 14)).grid(column=3, row=i, sticky=W)
             Label(mainframe, text=currVer, font=("Arial", 14)).grid(column=4, row=i, sticky=W)
-            btns[i] = Button(mainframe, text="Open", command=lambda a=i: button_pressed(a)).grid(column=5, row=i, sticky=E)
+            btns[i] = Button(mainframe, text="Open", command=lambda row = i: button_pressed(row)).grid(column=5, row=i, sticky=E)
             i += i
 for child in mainframe.winfo_children(): 
     child.grid_configure(padx=5, pady=5)
