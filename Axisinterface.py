@@ -23,11 +23,10 @@ Label(mainframe, text="Axis Model", font=("Arial", 16)).grid(column=1, row=1, st
 Label(mainframe, text="IP Address", font=("Arial", 16)).grid(column=2, row=1, sticky=W)
 Label(mainframe, text="Serial No", font=("Arial", 16)).grid(column=3, row=1, sticky=W)
 Label(mainframe, text="FW Version", font=("Arial", 16)).grid(column=4, row=1, sticky=W)
-Label(mainframe, text="Open in Browser", font=("Arial", 16)).grid(column=5, row=1, sticky=W)
+Label(mainframe, text="Web Interface", font=("Arial", 16)).grid(column=5, row=1, sticky=W)
 
 
 # Set up Button Function to open browser
-
 def button_pressed(row):
     Axisfinder.oiff(dictUrl[row], systype)
 
