@@ -13,4 +13,8 @@ Requirements: I have the script set up to open the Axis camera page in Firefox d
 
 Axisfinder.py: Opens every Axis camera's web interface it finds via SSDP Discovery in Firefox. Sets default user/pass to root:password on a factory default camera. Prints out a QC blurb.
 
-Axisinterface.py: Searches via SSDP Discovery and displays Axis cameras found on open. Provides a button to open the Web Interface of the camera. Backend provided by Axisfinder.py.
+Axisinterface.py: Searches via SSDP Discovery and displays Axis cameras found on open. Provides a button to open the Web Interface of the camera. Backend provided by Axisfinder.py. 
+  Tested on Debian 13: default installation missing tkinter and requests
+  ``` sudo (or su -c ') apt install python3-tk (') ```
+  To install requests, create a venv ie: ``` python3 -m venv .``` in the directory you downloaded the python files to, then ```python3 -m pip install requests```
+  
