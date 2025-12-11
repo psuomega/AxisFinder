@@ -17,4 +17,6 @@ Axisinterface.py: Searches via SSDP Discovery and displays Axis cameras found on
   Tested on Debian 13: default installation missing tkinter and requests
   ``` sudo (or su -c ') apt install python3-tk (') ```
   To install requests, create a venv ie: ``` python3 -m venv .``` in the directory you downloaded the python files to, then ```python3 -m pip install requests```
-  
+
+Known Issues: Firmware Version 8 doesn't provide the searched for Axis bit in the initial SSDP Discovery, but really only been using this for FW V10+
+Hacks/Workaround: I changed Axisfinder to return the URLs of everything it finds in SSDP and was able to just plug through them until I found the camera I was looking for. If this is useful, let me know and I'll fork this to upload those changes. Probably even make a real fix...
