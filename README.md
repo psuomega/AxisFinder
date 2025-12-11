@@ -1,7 +1,7 @@
 # AxisFinder
 Python scripts to open web interface of Axis Camera
 
-Axis Communications does not release a MacOS version of AXIS IP Utility, so I built this quick python script to save myself a few key strokes when I have to interface with a new camera. 
+Axis Communications does not release a MacOS version of AXIS IP Utility, so I built this quick python script to save myself a few key strokes when I have to interface with a new camera, instead of using ```arp -a``` and parsing output to find what I want.
 You can find the Official Axis IP Utility on the Axis site here: https://www.axis.com/support/tools/axis-ip-utility#download-block
 
 How to use:
